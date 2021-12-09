@@ -1,0 +1,46 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    Predict Page
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.ico') }}">
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+
+{% block content %}
+    <center>Welcome {{ name }}</center>
+    <div class="container">
+        <h1>Insert Car Info to Predict</h1>
+        <br>
+        <br>
+        <form class="form" action="{{ url_for('predict') }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.make) }}
+            {{ wtf.form_field(form.model) }}
+            {{ wtf.form_field(form.year) }}
+            {{ wtf.form_field(form.odometer) }}
+            {{ form.transmission.label }}
+            {{ wtf.form_field(form.transmission) }}
+            <br>
+            {{ wtf.form_field(form.submit) }}
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{ url_for('.static', filename='script.js') }}"></script>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,127 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.ico') }}">
+    <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
+{% endblock %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+{% block content %}
+    <center>
+        <h1>Scatter Chart of Used Car Price depends on Year and Odometer</h1>
+        <div id="3d-scatter"></div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <p>You can play around on these 3D Charts with the mouse. And hover over the spot to see the value of it.
+            As you see, these charts prove that the older or more milages of the car has, the cheaper it is.</p>
+        </div>
+    </center>
+        <br>
+        <br>
+        <br>
+    <center>
+        <h1>Scatter Chart of Car Price Varying by Odometer</h1>
+        <div id="scatter"></div>
+    </center>
+        <br>
+        <br>
+        <br>
+    <center>
+        <h1>Bar Chart of Car Price Varying by Year of Production</h1>
+        <div id="bar-chart"></div>
+        <br>
+        <br>
+    </center>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+        <script>
+        chart = document.getElementById('3d-scatter');
+
+        var data = [{
+            x: {{ info['odometer'] }},
+            y: {{ info['year'] }},
+            z: {{ info['price'] }},
+            mode: 'markers',
+            type: 'scatter3d',
+            hovertemplate: 'Price: $ %{z:,}<br>Year: %{y}<br>Odometer: %{x:,}'
+        }];
+
+        var layout = {
+            scene: {
+                xaxis: {title: 'Odometer'},
+                yaxis: {title: 'Year'},
+                zaxis: {title: 'Price'}
+            },
+            margin: {
+                l: 0,
+                r: 0,
+                b: 0,
+                t: 0
+            },
+            width: 1200,
+            height: 1000
+        };
+
+        var config = {responsive: true};
+
+        Plotly.newPlot(chart, data, layout, config);
+    </script>
+
+    <script>
+        chart = document.getElementById('scatter');
+
+        var price = {
+            x: {{ info['odometer'] }},
+            y: {{ info['price'] }},
+            mode: 'markers',
+            type: 'scatter'
+        };
+
+        var data = [price];
+
+        var layout = {
+            xaxis: {title: 'odometer'},
+            yaxis: {title: 'Price'},
+            width: 1400,
+            heigh: 1200
+        };
+
+        Plotly.newPlot(chart, data, layout);
+    </script>
+
+    <script>
+        chart = document.getElementById('bar-chart');
+
+        var price = {
+            x: {{ info['year'] }},
+            y: {{ info['price'] }},
+            type: 'bar'
+        };
+
+        var data = [price];
+
+        var layout = {
+            xaxis: {title: 'year'},
+            yaxis: {title: 'Price'},
+            width: 1400,
+            heigh: 1200
+        };
+
+        Plotly.newPlot(chart, data, layout);
+    </script>
+{% endblock %}
+
+

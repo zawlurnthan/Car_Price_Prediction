@@ -1,0 +1,59 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    Result Page
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.ico') }}">
+{% endblock %}
+
+{% block navbar %}
+    {{ nav.mynavbar.render() }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        {% if car %}
+            <div class="row">
+                <h1>The predicted price of the Car</h1>
+                <br>
+                <div class="col-sm-3">
+                    {% for k in car.keys() %}
+                        <h3>{{ k }}</h3>
+                    {% endfor %}
+                </div>
+                <div class="col-sm-3">
+                    {% for v in car.values() %}
+                        <h3>: {{ v }}</h3>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        <br>
+        <br>
+        {% if predictions %}
+            <div class="row">
+                <div class="col-sm-3">
+                    {% for key in predictions.keys() %}
+                        <h3>{{ key }}</h3>
+                    {% endfor %}
+                </div>
+                <div class="col-sm-3">
+                    {% for value in predictions.values() %}
+                        <h3>: {{ "$ {:,.2f}".format(value) }}</h3>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        <br>
+        <p class="text-info">Notice: The prices vary by scalar methods.</p>
+        <br>
+        <br>
+    </div>
+{% endblock %}
+
+
