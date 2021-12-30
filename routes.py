@@ -1,3 +1,5 @@
+import json
+
 from flask import render_template, request, redirect, url_for, flash, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from brain import input_process, make_predict, get_makes, data, get_cars

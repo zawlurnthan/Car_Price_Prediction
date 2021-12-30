@@ -11,4 +11,3 @@ info = {
     'odometer': [odometer for odometer in Land_Cruiser['odometer']],
     'price': [price for price in Land_Cruiser['price']],
 }
-

@@ -5,6 +5,7 @@ from flask_nav import Nav
 from flask_nav.elements import Navbar, View
 from flask_login import UserMixin
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'anything_will_be_secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -35,7 +36,7 @@ def mynavbar():
 
 if __name__ == '__main__':
     app.run()
-    db.create_all()
+
 
 
 import routes
