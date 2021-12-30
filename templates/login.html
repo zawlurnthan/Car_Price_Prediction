@@ -29,6 +29,7 @@
         <br>
         <a href="{{ url_for('forget') }}">Forget password?</a>
     </div>
+    <br>
 
     {% for message in get_flashed_messages() %}
         <p style="color:red" class="text-center">{{ message }}</p>
