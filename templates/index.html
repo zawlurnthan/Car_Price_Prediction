@@ -2,12 +2,13 @@
 
 {% block head %}
     {{ super() }}
+    <meta name="description" content="Check your car price by using maching learing model in this web app." />
     <link rel="icon" type="image/png" href="{{ url_for('.static', filename='car.ico') }}">
     <script src="https://cdn.plot.ly/plotly-2.6.3.min.js"></script>
 {% endblock %}
-
+    Home of prediction by Machine learning model
 {% block title %}
-    Home Page
+
 {% endblock %}
 
 {% block navbar %}
