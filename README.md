@@ -5,6 +5,7 @@ This project is the Capstone project for Western Governor University.
 Project use Machine Learning Model to predict car price.
 Model needs car made, model, year, odometer and transimission info to make prediction.
 Project is presented in the Flask web app. It has Index, Predict, Login and Logout page.
+
 https://car-price-prediction-wgu.herokuapp.com/
 
 - get data from kaggle.com
