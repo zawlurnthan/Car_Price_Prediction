@@ -10,7 +10,7 @@ https://car-price-prediction-wgu.herokuapp.com/
 
 - get data from kaggle.com
 - clean data with NumPy and Pandas
-- use SciKit Learn model regression
+- use Regression model from SciKit Learn
 - train and test model at Google Colab
 - present it on Flask web app
 - use SQLite-3 database for user login and logout functions
