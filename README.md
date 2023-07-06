@@ -7,6 +7,8 @@ Model needs car made, model, year, odometer and transimission info to make predi
 Project is presented in the Flask web app. It has Index, Predict, Login and Logout page.
 
 https://car-price-prediction-wgu.herokuapp.com/
+The application is live on render.com now since Heroku no longer supports the free version. 
+Here is the new address https://car-price-prediction-nbmj.onrender.com
 
 - get data from kaggle.com
 - clean data with NumPy and Pandas
